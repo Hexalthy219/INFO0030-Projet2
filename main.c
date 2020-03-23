@@ -17,6 +17,7 @@
 #include <getopt.h>
 
 #include "pnm.h"
+#include "filtre.h"
 
 
 int main(int argc, char *argv[]) {
@@ -31,6 +32,8 @@ int main(int argc, char *argv[]) {
    char *filename, *format;
    int retour_chargement, retour_ecriture, retour_verif_extension, val;
 
+   
+
    while((val=getopt(argc, argv, optstring))!=EOF){
       if(val=='f'){
             format = optarg;
@@ -40,7 +43,7 @@ int main(int argc, char *argv[]) {
          return 0;
    }
 
-   if(filename==NULL || argc<4){
+   if(filename==NULL && argc<4 && argc>1 && val=='f'){
       printf("Option 'f' requiert un argument 'fichier'.\n");
       return -1;
    }
@@ -58,6 +61,10 @@ int main(int argc, char *argv[]) {
    retour_chargement = load_pnm(&image, filename);
    if(retour_chargement == 0)
       printf("Chargement de l'image %s en mémoire avec succès.\n", filename);
+
+   // retournement(image);
+
+   negatif(image);
 
    if(retour_chargement == 0){
       char nom_fichier_ecriture[] = "test.pxm";

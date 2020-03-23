@@ -9,13 +9,10 @@
  * @projet: INFO0030 Projet 1
  */
 
-/*
- * Include guard (pour éviter les problèmes d'inclusions multiplies
- * Bonne pratique: toujours encadrer un header avec un include guard
- */
+
+//Include guard
 #ifndef __PNM__
 #define __PNM__
-
 /**
  * Déclaration du type opaque PNM
  *
@@ -33,6 +30,7 @@ typedef enum {PBM, PGM, PPM}Type_PNM;
  * 
  */
 typedef struct Dimension_pixel_t Dimension_pixel;
+
 
 /**
  * load_pnm
@@ -70,6 +68,19 @@ int load_pnm(PNM **image, char* filename);
  * 
  */ 
 PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int valeur_max, FILE *fichier);
+
+int acces_nbr_ligne_PNM(PNM *image);
+
+int acces_nbr_colonne_PNM(PNM *image);
+
+Type_PNM acces_format_PNM(PNM *image);
+
+unsigned int acces_valeur_max_PNM(PNM *image);
+
+unsigned short ***acces_valeurs_pixel_PNM(PNM *image);
+
+void changer_valeur_pixel_PNM(PNM *image, int numero_ligne, int numero_colonne, unsigned short valeur[]);
+
 
 /**
  * libere_PNM

@@ -14,6 +14,7 @@
 #include <assert.h>
 
 #include "pnm.h"
+#include "filtre.h"
 
 /**
  * Définition de la struct Dimension_pixel
@@ -203,6 +204,48 @@ PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int 
 
    return image;
 }
+
+int acces_nbr_ligne_PNM(PNM *image){
+   assert(image!=NULL);
+
+   return image->dimension.nbr_ligne;
+}
+
+int acces_nbr_colonne_PNM(PNM *image){
+   assert(image!=NULL);
+
+   return image->dimension.nbr_colonne;
+}
+
+Type_PNM acces_format_PNM(PNM *image){
+   assert(image!=NULL);
+
+   return image->format;
+}
+
+unsigned int acces_valeur_max_PNM(PNM *image){
+   assert(image!=NULL);
+
+   return image->valeur_max;
+}
+
+unsigned short ***acces_valeurs_pixel_PNM(PNM *image){
+   assert(image!=NULL);
+
+   return (image->valeurs_pixel);
+}
+
+void changer_valeur_pixel_PNM(PNM *image, int numero_ligne, int numero_colonne, unsigned short valeur[]){
+   assert(image!=NULL);
+
+   if(image->format==2){
+      for(int i=0; i<3; i++)
+         image->valeurs_pixel[numero_ligne][numero_colonne][i]=valeur[i];
+   }
+   else
+      image->valeurs_pixel[numero_ligne][numero_colonne][0]=valeur[0];
+}
+
 
 void libere_PNM(PNM **image){
    if(*image!=NULL)//vérification de la validité du pointeur avant de le free

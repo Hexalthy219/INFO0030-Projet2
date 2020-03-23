@@ -34,5 +34,5 @@ filtre.o: filtre.c
 	$(CC) -c filtre.c -o filtre.o $(CFLAGS)
 
 clean:
-	rm -f *.o $(EXEC) *~
+	rm -f *.o $(EXEC) *~ test.*
 
