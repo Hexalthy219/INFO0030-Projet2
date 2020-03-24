@@ -38,6 +38,8 @@ int monochrome(PNM *image, char type_monochrome);
 
 int negatif(PNM *image);
 
+PNM *ppm_vers_pgm(PNM *image, int technique);
 
+PNM *pgm_vers_pbm(PNM *image);
 
 #endif

@@ -19,18 +19,6 @@
  */
 typedef struct PNM_t PNM;
 
-/**
- * Déclaration de l'énumération reprenenat les différents type de fichier PNM
- * 
- */
-typedef enum {PBM, PGM, PPM}Type_PNM;
-
-/**
- * Déclaration de la struct Format_Image
- * 
- */
-typedef struct Dimension_pixel_t Dimension_pixel;
-
 
 /**
  * load_pnm
@@ -67,7 +55,7 @@ int load_pnm(PNM **image, char* filename);
  *              ont correctement été chargés dans image
  * 
  */ 
-PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int valeur_max);
+PNM *constructeur_PNM(int nbr_ligne, int nbr_colonne, int format, unsigned int valeur_max);
 
 int charge_valeurs_fichier(PNM *image, FILE *fichier);
 
@@ -75,7 +63,7 @@ int acces_nbr_ligne_PNM(PNM *image);
 
 int acces_nbr_colonne_PNM(PNM *image);
 
-Type_PNM acces_format_PNM(PNM *image);
+int acces_format_PNM(PNM *image);
 
 unsigned int acces_valeur_max_PNM(PNM *image);
 
@@ -126,7 +114,7 @@ int lit_valeur_max(unsigned int *valeur_max, FILE  *fichier);
  *      -1 échec de la lecture des dimensions de l'image
  * 
  */
-int lit_dimensions_image(Dimension_pixel *dimension, FILE *fichier);
+int lit_dimensions_image(int *nbr_ligne, int *nbr_colonne, FILE *fichier);
 
 /**
  * verifie_nombre_magique
@@ -145,7 +133,7 @@ int lit_dimensions_image(Dimension_pixel *dimension, FILE *fichier);
  *      -1  Numéro magique malformé / inexistant
  * 
  */
-int verifie_nombre_magique(Type_PNM *type, FILE*  fichier);
+int verifie_nombre_magique(int *type, FILE*  fichier);
 
 /**
  * verifie_correspondance_extension_format
@@ -160,7 +148,7 @@ int verifie_nombre_magique(Type_PNM *type, FILE*  fichier);
  *      -1 échec de la vérification
  * 
  */ 
-int verifie_correspondance_extension_format(Type_PNM type_image, char *filename, Type_PNM *extension_fichier);
+int verifie_correspondance_extension_format(int type_image, char *filename, int *extension_fichier);
 
 /**
  * Type_PNM_vers_chaine
@@ -173,7 +161,7 @@ int verifie_correspondance_extension_format(Type_PNM type_image, char *filename,
  *      la chaine de caractère correspondante si possible
  *      "inconnu" sinon
  */
-char *Type_PNM_vers_chaine(Type_PNM type_image);
+char *Type_PNM_vers_chaine(int format);
 
 /**
  * chaine_vers_Type_PNM
@@ -182,7 +170,7 @@ char *Type_PNM_vers_chaine(Type_PNM type_image);
  * 
  * @param chaine un pointeur vers la chaine de caractère à laquelle vérifier de quel type de l'enum elle correspond
  * 
- * @param type_image pointeur vers Type_PNM dans lequel transmettre la valeur correspodnante à la chaine de caractère
+ * @param format pointeur vers Type_PNM dans lequel transmettre la valeur correspodnante à la chaine de caractère
  * 
  * @pre:/
  * @post:/
@@ -192,7 +180,7 @@ char *Type_PNM_vers_chaine(Type_PNM type_image);
  *      -1 la chaine de caractère ne correspond à aucun des types et n'a donc pas été donnée à type_image
  *  
  */
-int chaine_vers_Type_PNM(char *chaine, Type_PNM *type_image);
+int chaine_vers_Type_PNM(char *chaine, int *type_image);
 
 /**
  * write_pnm

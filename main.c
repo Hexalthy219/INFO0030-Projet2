@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
    */
    char *optstring = "f:";
    PNM *image;
-   Type_PNM format_PNM, extension_fichier;
+   int format_PNM, extension_fichier;
    char *filename, *format;
    int retour_chargement, retour_ecriture, retour_verif_extension, val;
 
@@ -64,7 +64,9 @@ int main(int argc, char *argv[]) {
 
    // retournement(image);
 
-   negatif(image);
+   // negatif(image);
+   image = ppm_vers_pgm(image, 2);
+   printf("format image après fonction : %d\n", acces_format_PNM(image));
 
    if(retour_chargement == 0){
       char nom_fichier_ecriture[] = "test.pxm";
