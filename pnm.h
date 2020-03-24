@@ -67,7 +67,9 @@ int load_pnm(PNM **image, char* filename);
  *              ont correctement été chargés dans image
  * 
  */ 
-PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int valeur_max, FILE *fichier);
+PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int valeur_max);
+
+int charge_valeurs_fichier(PNM *image, FILE *fichier);
 
 int acces_nbr_ligne_PNM(PNM *image);
 

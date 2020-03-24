@@ -85,20 +85,21 @@ int load_pnm(PNM **image, char* filename) {
 
    /*allocation dynamique d'une struct PNM et allocation du tableau qui contiendra les valeurs de chaque pixel de l'image
       remplissage de la structure (informations + valeurs de chaque pixel)*/
-   *image = constructeur_PNM(dimension, type_image, valeur_max, fichier);
+   *image = constructeur_PNM(dimension, type_image, valeur_max);
    if (*image==NULL){
       printf("Allocation de mémoire impossible.\n");
       fclose(fichier);
       return -1;
    }
 
+   charge_valeurs_fichier(*image, fichier);
+
    fclose(fichier);
    return 0;
 }
 
-PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int valeur_max, FILE *fichier){
-   int i, j, nbr_valeur_ppm=0;
-   char stockage_valeur_fichier[100];
+PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int valeur_max){
+   int i, j;
 
    //malloc la matrice et chaque élément de celle-ci
    PNM *image = malloc(sizeof(PNM));
@@ -123,6 +124,7 @@ PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int 
          }
          free(image->valeurs_pixel);
          free(image);
+         image=NULL;
          return NULL;//sortie de la fonction car échec d'allocation d'un pointeur de ligne
       }
       else{//si allocation de la ligne avec succès, allocation des pointeurs de chaque élément de cette ligne
@@ -144,11 +146,11 @@ PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int 
                }
             free(image->valeurs_pixel);
             free(image);
+            image=NULL;
             return NULL;//sortie de la fonction car échec de l'allocation de la case de short du tableau
             }
          }
       }
-
    }
 
    //initialisation des informations de l'image dans la struct PNM
@@ -160,17 +162,28 @@ PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int 
    else
       image->valeur_max = valeur_max;
 
+   return image;
+}
+
+int charge_valeurs_fichier(PNM *image, FILE *fichier){
+   char stockage_valeur_fichier[100];
+   int i, j, nbr_valeur_ppm = 0;
 
    //initialisation des valeurs du tableau de pixel représentant l'image
-   if(image->format==PBM || image->format==PGM){//si PBM, PGM uniquement une valeur par pixel à enregister
-      for(i=0; i<dimensions.nbr_ligne; i++){
-         for (j=0; j<dimensions.nbr_colonne;){
+   if (image->format == PBM || image->format == PGM)
+   { //si PBM, PGM uniquement une valeur par pixel à enregister
+      for (i = 0; i < image->dimension.nbr_ligne; i++)
+      {
+         for (j = 0; j < image->dimension.nbr_colonne;)
+         {
             fscanf(fichier, "%s", stockage_valeur_fichier);
-            if(stockage_valeur_fichier[0]!='#'){
+            if (stockage_valeur_fichier[0] != '#')
+            {
                image->valeurs_pixel[i][j][0] = atoi(stockage_valeur_fichier);
-               if(atoi(stockage_valeur_fichier) > (int)image->valeur_max){
+               if (atoi(stockage_valeur_fichier) > (int)image->valeur_max)
+               {
                   libere_PNM(&image);
-                  return NULL;
+                  return -1;
                }
                j++;
             }
@@ -179,30 +192,34 @@ PNM *constructeur_PNM(Dimension_pixel dimensions, Type_PNM format, unsigned int 
          }
       }
    }
-   else{//si PPM 3 valeurs par pixel à enregistrer
-      for(i=0; i<dimensions.nbr_ligne; i++){
-         for (j=0; j<dimensions.nbr_colonne;){
+   else
+   { //si PPM 3 valeurs par pixel à enregistrer
+      for (i = 0; i < image->dimension.nbr_ligne; i++)
+      {
+         for (j = 0; j < image->dimension.nbr_colonne;)
+         {
             fscanf(fichier, "%s", stockage_valeur_fichier);
-            if(stockage_valeur_fichier[0]!='#'){
+            if (stockage_valeur_fichier[0] != '#')
+            {
                image->valeurs_pixel[i][j][nbr_valeur_ppm] = atoi(stockage_valeur_fichier);
-               if(atoi(stockage_valeur_fichier) > (int)image->valeur_max){
+               if (atoi(stockage_valeur_fichier) > (int)image->valeur_max)
+               {
                   libere_PNM(&image);
-                  return NULL;
+                  return -1;
                }
                //vérifie à quelle valeur parmi les 3 du pixel actuellement en cours d'enregistrement on est
                // si on est à la 3ème valeur alors, incrémentation de j afin de passer au pixel d'après et réinitialisation de nbr_valeur_ppm
-               if(nbr_valeur_ppm==2)
+               if (nbr_valeur_ppm == 2)
                   j++;
                nbr_valeur_ppm++;
-               nbr_valeur_ppm%=3;
+               nbr_valeur_ppm %= 3;
             }
             else
                fscanf(fichier, "%*[^\n]");
          }
       }
    }
-
-   return image;
+   return 0;
 }
 
 int acces_nbr_ligne_PNM(PNM *image){
@@ -245,7 +262,6 @@ void changer_valeur_pixel_PNM(PNM *image, int numero_ligne, int numero_colonne, 
    else
       image->valeurs_pixel[numero_ligne][numero_colonne][0]=valeur[0];
 }
-
 
 void libere_PNM(PNM **image){
    if(*image!=NULL)//vérification de la validité du pointeur avant de le free

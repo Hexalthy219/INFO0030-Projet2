@@ -70,8 +70,7 @@ int monochrome(PNM *image, char type_monochrome){
 }
 
 int negatif(PNM *image){
-    assert(image!=NULL);
-    assert(acces_format_PNM(image)==2);
+    assert(image!=NULL && acces_format_PNM(image)==2);
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
 
@@ -83,4 +82,14 @@ int negatif(PNM *image){
     }
 
     return 0;
+}
+
+int ppm_to_pgm(PNM *image, int technique){
+    assert(image!=NULL && acces_format_PNM(image)==2);
+    unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
+    int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
+    if(technique==1){
+        
+    }
+
 }
