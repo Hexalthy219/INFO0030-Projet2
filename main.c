@@ -1,12 +1,12 @@
 /**
- * main.c
+ * \fn main.c
  * 
- * Ce fichier contient la fonction main() du programme de manipulation
+ * \brief Ce fichier contient la fonction main() du programme de manipulation
  * de fichiers pnm.
  *
- * @author: Russe Cyril s170220
- * @date: 01-03-2020
- * @projet: INFO0030 Projet 1
+ * \author: Russe Cyril s170220
+ * \date: 01-03-2020
+ * 
  */
 
 #include <stdio.h>
@@ -65,7 +65,10 @@ int main(int argc, char *argv[]) {
    // retournement(image);
 
    // negatif(image);
-   image = ppm_vers_pgm(image, 2);
+   if (pgm_vers_pbm(image, 115)==-1){
+      libere_PNM(&image);
+      return -1;
+   }
    printf("format image après fonction : %d\n", acces_format_PNM(image));
 
    if(retour_chargement == 0){

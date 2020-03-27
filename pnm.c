@@ -1,12 +1,12 @@
 /**
- * pnm.c
+ * \file pnm.c
  * 
- * Ce fichier contient les définitions de types et 
+ * \brief Ce fichier contient les définitions de types et 
  * les fonctions de manipulation d'images PNM.
  * 
- * @author: Russe Cyril s170220
- * @date: 01-03-2020
- * @projet: INFO0030 Projet 1
+ * \author: Russe Cyril s170220
+ * \date: 26-03-2020
+ * 
  */
 
 #include <stdio.h>
@@ -17,8 +17,8 @@
 #include "filtre.h"
 
 /**
- * Définition du type opaque PNM
- *
+ * \struct PNM_t
+ * \brief Définition du type opaque PNM
  */
 struct PNM_t {
    int format;
@@ -165,55 +165,32 @@ int charge_valeurs_fichier(PNM *image, FILE *fichier){
    int i, j, nbr_valeur_ppm = 0;
 
    //initialisation des valeurs du tableau de pixel représentant l'image
-   if (image->format == 1 || image->format == 2)
-   { //si PBM, PGM uniquement une valeur par pixel à enregister
-      for (i = 0; i < image->nbr_ligne; i++)
-      {
-         for (j = 0; j < image->nbr_colonne;)
-         {
-            fscanf(fichier, "%s", stockage_valeur_fichier);
-            if (stockage_valeur_fichier[0] != '#')
-            {
+   for (i = 0; i < image->nbr_ligne; i++){
+      for (j = 0; j < image->nbr_colonne;){
+         if(fscanf(fichier, "%s", stockage_valeur_fichier)==0)
+            return -1;
+         if (stockage_valeur_fichier[0] != '#'){
+            if (atoi(stockage_valeur_fichier) > (int)image->valeur_max){
+               libere_PNM(&image);
+               return -1;
+            }
+            if (image->format == 1 || image->format == 2){
                image->valeurs_pixel[i][j][0] = atoi(stockage_valeur_fichier);
-               if (atoi(stockage_valeur_fichier) > (int)image->valeur_max)
-               {
-                  libere_PNM(&image);
-                  return -1;
-               }
                j++;
             }
-            else
-               fscanf(fichier, "%*[^\n]");
-         }
-      }
-   }
-   else
-   { //si PPM 3 valeurs par pixel à enregistrer
-      for (i = 0; i < image->nbr_ligne; i++)
-      {
-         for (j = 0; j < image->nbr_colonne;)
-         {
-            fscanf(fichier, "%s", stockage_valeur_fichier);
-            if (stockage_valeur_fichier[0] != '#')
-            {
+            else{
                image->valeurs_pixel[i][j][nbr_valeur_ppm] = atoi(stockage_valeur_fichier);
-               if (atoi(stockage_valeur_fichier) > (int)image->valeur_max)
-               {
-                  libere_PNM(&image);
-                  return -1;
-               }
-               //vérifie à quelle valeur parmi les 3 du pixel actuellement en cours d'enregistrement on est
-               // si on est à la 3ème valeur alors, incrémentation de j afin de passer au pixel d'après et réinitialisation de nbr_valeur_ppm
                if (nbr_valeur_ppm == 2)
                   j++;
                nbr_valeur_ppm++;
                nbr_valeur_ppm %= 3;
             }
-            else
-               fscanf(fichier, "%*[^\n]");
          }
+         else
+            fscanf(fichier, "%*[^\n]");
       }
    }
+
    return 0;
 }
 
@@ -249,13 +226,19 @@ unsigned short ***acces_valeurs_pixel_PNM(PNM *image){
 
 void changer_valeur_pixel_PNM(PNM *image, int numero_ligne, int numero_colonne, unsigned short valeur[]){
    assert(image!=NULL);
-
-   if(image->format==2){
+   
+   if(image->format==3){
       for(int i=0; i<3; i++)
          image->valeurs_pixel[numero_ligne][numero_colonne][i]=valeur[i];
    }
    else
       image->valeurs_pixel[numero_ligne][numero_colonne][0]=valeur[0];
+}
+
+void changer_format(PNM *image, int format){
+   assert(image!=NULL && (format==1||format==2));
+
+   image->format=format;
 }
 
 void libere_PNM(PNM **image){
