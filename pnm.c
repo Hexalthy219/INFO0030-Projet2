@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 #include "pnm.h"
 #include "filtre.h"
@@ -29,12 +30,7 @@ int load_pnm(PNM **image, char* filename) {
    int type_image, extension_fichier;
    int nbr_ligne, nbr_colonne;
    unsigned int valeur_max;
-
-
-   if (filename==NULL){//vérification de la precondition quant à l'existence du nom de fichier
-      printf("Veuillez entrer un nom de fichier.\n");
-      return -2;
-   }
+   assert(filename!=NULL);
 
    FILE* fichier = fopen(filename, "r");//ouverture du fichier
    if (fichier==NULL){
@@ -51,7 +47,7 @@ int load_pnm(PNM **image, char* filename) {
 
    //vérifie que le format lu dans l'en tête du fichier correspond bien à l'extension de filename
    if (verifie_correspondance_extension_format(type_image, filename, &extension_fichier)==-1){
-      printf("L'extension de %s ne correspond pas au type de l'en tête. L'extension est du type %s et non %s.\n", filename, Type_PNM_vers_chaine(extension_fichier), Type_PNM_vers_chaine(type_image));
+      printf("L'extension de %s ne correspond pas au format de l'en tête.\n", filename);
       fclose(fichier);
       return -2;
    }
@@ -456,5 +452,42 @@ int ecrit_en_tete_fichier_PNM(PNM *image, FILE *fichier){
 
    return 0;
 
+}
+
+int verifie_extension_fichier(char *filename, PNM *image){
+   assert(filename!=NULL);
+   int format=acces_format_PNM(image);
+
+   int taille=strlen(filename);
+   if(taille>5){
+      if(filename[taille-4]!='.'){
+         printf("Extension du fichier %s incorrect.\n", filename);
+         return -1;
+      }
+      else{
+         
+         filename[taille-3]='p';
+         filename[taille-1]='m';
+         switch (format)
+         {
+         case 1:
+            printf("1\n");
+            filename[taille-2]='b';
+            break;
+         case 2:
+            printf("2\n");
+            filename[taille-2]='g';
+            break;
+         case 3:
+            printf("3\n");
+            filename[taille-2]='p';
+            break;
+         }
+      }
+   }
+   else
+      return -1;
+
+   return 0;
 }
 

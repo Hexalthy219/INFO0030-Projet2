@@ -218,5 +218,7 @@ int ecrit_en_tete_fichier_PNM(PNM *image, FILE *fichier);
  */
 int verifie_validite_filename(char *filename);
 
+int verifie_extension_fichier(char *filename, PNM *image);
+
 #endif // __PNM__
 

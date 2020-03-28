@@ -62,7 +62,7 @@ lib: libpnm.a
 	mv libpnm.a lib/libpnm.a
 
 libpnm.a:pnm.o
-	$(AR) ruv $@ $?
+	$(AR) rv $@ $?
 	$(RANLIB) $@
 
 clean_lib:

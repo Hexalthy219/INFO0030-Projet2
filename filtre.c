@@ -15,6 +15,11 @@
 #include "filtre.h"
 #include "pnm.h"
 
+/**
+ * Déclaration de static int verifie_param_filtre
+ * 
+ */
+static int verifie_param_filtre(Filtre filtre, char *param, PNM *image);
 
 
 void retournement(PNM *image){
@@ -39,17 +44,21 @@ void retournement(PNM *image){
             }
         }
     }
-
 }
 
 int monochrome(PNM *image, char *couleur){
-    assert(couleur!=NULL);
+    assert(couleur!=NULL && image!=NULL);
     char type_monochrome = couleur[0];
-    assert(image!=NULL || (type_monochrome!='r' && type_monochrome!='v' && type_monochrome!='b'));
-    assert(acces_format_PNM(image)==3);
+    if(verifie_param_filtre(mono, couleur, image)==-1){
+        printf("Le paramètre du filtre monochrome entré est incorrect.\n");
+        return -1;
+    }
+    if(acces_format_PNM(image)!=3){
+        printf("Mauvais format d'image. Le fichier donné doit être une image au format PPM pour pouvoir y appliquer un filtre monochrome.\n");
+        return -2;
+    }
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
-
 
 
     for(int i=0; i<nbr_ligne; i++){
@@ -69,7 +78,11 @@ int monochrome(PNM *image, char *couleur){
 }
 
 int negatif(PNM *image){
-    assert(image!=NULL && acces_format_PNM(image)==3);
+    assert(image!=NULL);
+    if(acces_format_PNM(image)!=3){
+        printf("Mauvais format d'image. Le fichier donné doit être une image au format PPM pour pouvoir y appliquer un filtre négatif.\n");
+        return -1;
+    }
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
 
@@ -84,8 +97,15 @@ int negatif(PNM *image){
 }
 
 int gris(PNM *image, char *technique){
-    int format;
-    assert(image!=NULL && ((format=acces_format_PNM(image))==3) && (technique==1||technique==2));
+    assert(image!=NULL);
+    if(acces_format_PNM(image)!=3){
+        printf("Mauvais format d'image. Le fichier donné doit être une image au format PPM pour y appliquer un filtre gris.\n");
+        return -1;
+    }
+    if(verifie_param_filtre(g, technique, image)==-1){
+        printf("Le paramètre de filtre gris est incorrect.\n");
+        return -2;
+    }
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image), valeur_max = acces_valeur_max_PNM(image);
     float moyenne;
@@ -94,12 +114,12 @@ int gris(PNM *image, char *technique){
     PNM *image_PGM;
     if((image_PGM = constructeur_PNM(nbr_ligne, nbr_colonne, 2, valeur_max))==NULL){
         printf("Echec lors de l'application du filtre gris.\n");
-        return -1;
+        return -3;
     }
 
     for(int i=0; i<nbr_ligne; i++){
         for(int j=0; j<nbr_colonne; j++){
-            if(technique==1){
+            if(atoi(technique)==1){
                 moyenne = 0;
                 for(int x=0; x<3; x++)
                     moyenne += matrice_pixels[i][j][x];
@@ -116,23 +136,27 @@ int gris(PNM *image, char *technique){
         }
     }
     image = image_PGM;
+    printf("format : %d\n", acces_format_PNM(image));
     libere_PNM(&image_PGM);
-    
+    printf("format : %d\n", acces_format_PNM(image));
     return 0;
 }
 
 int noir_blanc(PNM *image,char *seuil){
     assert(image!=NULL && seuil!=NULL);
     int format;
-    (format=acces_format_PNM(image))==2||format==3)
+    if((format=acces_format_PNM(image))!=2 && format!=3){
+        printf("L'image donnée est déjà en noir et blanc.\n");
+        return -2;
+    }
     if(verifie_param_filtre(nb, seuil, image)==-1)
     {
         printf("Le seuil entré n'est pas une valeur de seuil valable.\n");
         return -1;
     }
     if(format==3){
-        if(gris(image, 1)==-1)
-            return -1;
+        if(gris(image, "1")==-1)
+            return -3;
     }
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
@@ -141,7 +165,7 @@ int noir_blanc(PNM *image,char *seuil){
 
     for(int i=0; i<nbr_ligne; i++){
         for(int j=0; j<nbr_colonne; j++){
-            if(matrice_pixels[i][j][0]>seuil)
+            if(matrice_pixels[i][j][0]>atoi(seuil))
                 noir_blanc[0]=1;
             else
                 noir_blanc[0]=0;
@@ -153,24 +177,24 @@ int noir_blanc(PNM *image,char *seuil){
 }
 
 static int verifie_param_filtre(Filtre filtre, char *param, PNM *image){
-    assert(param!=NULL&&(filtre==monochrome||filtre==gris||filtre==nb));
-    if(filtre==monochrome){
+    assert(param!=NULL&&(filtre==mono||filtre==g||filtre==nb));
+    if(filtre==mono){
         if (param[0]!='r'&&param[0]!='v'&&param[0]!='b')
             return -1;
         else
             return 0;
     }
-    else if(filtre==gris){
+    else if(filtre==g){
         if(atoi(param)!=1&&atoi(param)==2)
             return -1;
         else
             return 0;
     }
     else if(filtre==nb){
-        if(atoi(param)<0||acces_valeur_max_PNM(image)<atoi(param))
+        if(atoi(param)<0||((int)acces_valeur_max_PNM(image)<atoi(param)))
             return -1;
         else
             return 0;
     }
-
+    return -1;
 }

@@ -16,8 +16,8 @@
 
 typedef enum
 {
-    monochrome,
-    gris,
+    mono,
+    g,
     nb
 } Filtre;
 
@@ -40,7 +40,5 @@ int negatif(PNM *image);
 int gris(PNM *image, char *technique);
 
 int noir_blanc(PNM *image, char *seuil);
-
-static int verifie_param_filtre(Filtre filtre, char *param);
 
 #endif
