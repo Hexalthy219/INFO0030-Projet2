@@ -1,5 +1,5 @@
 /**
- * \fn main.c
+ * \file main.c
  * 
  * \brief Ce fichier contient la fonction main() du programme de manipulation
  * de fichiers pnm.
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <getopt.h>
+#include <string.h>
 
 #include "pnm.h"
 #include "filtre.h"
@@ -23,62 +24,68 @@
 int main(int argc, char *argv[]) {
 
    /* options :
-   *  -f <format> <fichier> -> permet de lancer le chargement de fichier et de le recopier dans le dossier de l'executable pnm sous le nom "test"
-   *     suivi de l'extension correspondante dans le répertoire de l'executable
+   *  
    */
-   char *optstring = "f:";
+   char *optstring = "i:f:p:o:";
    PNM *image;
-   int format_PNM, extension_fichier;
-   char *filename, *format;
-   int retour_chargement, retour_ecriture, retour_verif_extension, val;
+   int filtre_input=0;
+   char *filename=NULL, *filtre=NULL, *parametre=NULL, *filename_output=NULL;
+   int val;
 
    
 
    while((val=getopt(argc, argv, optstring))!=EOF){
-      if(val=='f'){
-            format = optarg;
-            filename = argv[argc-1];
+      switch (val){
+         case 'i':
+            filename=optarg;
+            break;
+         case 'f':
+            filtre=optarg;
+            filtre_input=1;
+            break;
+         case 'p':
+            if(filtre_input!=1){
+               printf("L'argument p est un argument optionnel de l'argument f. Veuillez entrer un filtre pour utiliser l'argument p.\n");
+               return -1;
+            }
+            else{
+               parametre=optarg;
+            }
+            break;
+         case 'o':
+            filename_output=optarg;
+            break;
+
+         default:
+            break;
       }
-      else
-         return 0;
    }
 
-   if(filename==NULL && argc<4 && argc>1 && val=='f'){
-      printf("Option 'f' requiert un argument 'fichier'.\n");
+   if(load_pnm(&image, filename)!=0)
       return -1;
+   
+   if(strcmp(filtre, "retournement")==0)
+      retournement(image);
+   else if(strcmp(filtre, "monochrome")==0){
+      monochrome(image, parametre);
    }
-
-   if(chaine_vers_Type_PNM(format, &format_PNM)==-1){
-      printf("Le format %s passé en argument n'est pas un format PNM.\n", Type_PNM_vers_chaine(format_PNM));
-      return -1;
+   else if(strcmp(filtre, "negatif")==0){
+      negatif(image);
    }
-
-   if((retour_verif_extension = verifie_correspondance_extension_format(format_PNM, filename, &extension_fichier))==-1){
-      printf("Mauvais format passé en argument. Le fichier %s est du type %s et non %s.\n", filename, Type_PNM_vers_chaine(extension_fichier), Type_PNM_vers_chaine(format_PNM));
-      return -1;
+   else if(strcmp(filtre, "gris")==0){
+      gris(image, parametre);
    }
-
-   retour_chargement = load_pnm(&image, filename);
-   if(retour_chargement == 0)
-      printf("Chargement de l'image %s en mémoire avec succès.\n", filename);
-
-   // retournement(image);
-
-   // negatif(image);
-   if (pgm_vers_pbm(image, 115)==-1){
+   else if(strcmp(filtre, "NB")==0){
+      noir_blanc(image, parametre);
+   }
+   else{
+      printf("Le filtre entré en argument ne correspond à aucun filtre.\n");
       libere_PNM(&image);
       return -1;
    }
-   printf("format image après fonction : %d\n", acces_format_PNM(image));
 
-   if(retour_chargement == 0){
-      char nom_fichier_ecriture[] = "test.pxm";
-      ajoute_extension_filename(nom_fichier_ecriture, image);
-      retour_ecriture = write_pnm(image, nom_fichier_ecriture);
-      if(retour_ecriture==0)
-         printf("Image copiée dans le fichier %s.\n", nom_fichier_ecriture);
-      libere_PNM(&image);
-   }
+   write_pnm(image, filename_output);
+   
 
    return 0;
 }

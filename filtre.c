@@ -1,8 +1,6 @@
 /**
  * \file filtre.c
- * 
- * \brief Ce fichier contient les définitions de types et 
- * les fonctions de filtre d'images PNM.
+ * \brief Ce fichier contient les définitions de types et les fonctions de filtre d'images PNM.
  * 
  * \author: Russe Cyril s170220
  * \date: 19-03-2020
@@ -17,7 +15,9 @@
 #include "filtre.h"
 #include "pnm.h"
 
-int retournement(PNM *image){
+
+
+void retournement(PNM *image){
     assert(image!=NULL);
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
@@ -25,8 +25,8 @@ int retournement(PNM *image){
     unsigned short tampon[3];
     for(int i=0; i<nbr_ligne/2; i++){
         for(int j=0; j<nbr_colonne; j++){
-            if(format==2){
-                for(int x=0; x<3; x++){
+            if(format==3){
+                for(int x=1; x<3; x++){
                     tampon[x] = matrice_pixels[i][j][x];
                     matrice_pixels[i][j][x] = matrice_pixels[nbr_ligne-i-1][nbr_colonne-j-1][x];
                     matrice_pixels[nbr_ligne-i-1][nbr_colonne-j-1][x] = tampon[x];
@@ -40,14 +40,18 @@ int retournement(PNM *image){
         }
     }
 
-    return 0;
 }
 
-int monochrome(PNM *image, char type_monochrome){
+int monochrome(PNM *image, char *couleur){
+    assert(couleur!=NULL);
+    char type_monochrome = couleur[0];
     assert(image!=NULL || (type_monochrome!='r' && type_monochrome!='v' && type_monochrome!='b'));
     assert(acces_format_PNM(image)==3);
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
     int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
+
+
+
     for(int i=0; i<nbr_ligne; i++){
         for(int j=0; j<nbr_colonne; j++){
             for(int x=0; x<2; x++){
@@ -79,7 +83,7 @@ int negatif(PNM *image){
     return 0;
 }
 
-int ppm_vers_pgm(PNM *image, int technique){
+int gris(PNM *image, char *technique){
     int format;
     assert(image!=NULL && ((format=acces_format_PNM(image))==3) && (technique==1||technique==2));
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
@@ -117,11 +121,17 @@ int ppm_vers_pgm(PNM *image, int technique){
     return 0;
 }
 
-int pgm_vers_pbm(PNM *image, unsigned short seuil){
+int noir_blanc(PNM *image,char *seuil){
+    assert(image!=NULL && seuil!=NULL);
     int format;
-    assert(image!=NULL && ((format=acces_format_PNM(image))==2||format==3));
+    (format=acces_format_PNM(image))==2||format==3)
+    if(verifie_param_filtre(nb, seuil, image)==-1)
+    {
+        printf("Le seuil entré n'est pas une valeur de seuil valable.\n");
+        return -1;
+    }
     if(format==3){
-        if(ppm_vers_pgm(image, 1)==-1)
+        if(gris(image, 1)==-1)
             return -1;
     }
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
@@ -140,4 +150,27 @@ int pgm_vers_pbm(PNM *image, unsigned short seuil){
     }
 
     return 0;
+}
+
+static int verifie_param_filtre(Filtre filtre, char *param, PNM *image){
+    assert(param!=NULL&&(filtre==monochrome||filtre==gris||filtre==nb));
+    if(filtre==monochrome){
+        if (param[0]!='r'&&param[0]!='v'&&param[0]!='b')
+            return -1;
+        else
+            return 0;
+    }
+    else if(filtre==gris){
+        if(atoi(param)!=1&&atoi(param)==2)
+            return -1;
+        else
+            return 0;
+    }
+    else if(filtre==nb){
+        if(atoi(param)<0||acces_valeur_max_PNM(image)<atoi(param))
+            return -1;
+        else
+            return 0;
+    }
+
 }

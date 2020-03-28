@@ -18,7 +18,7 @@ MODULES=main.c pnm.c filtre.c
 OBJECTS=main.o filtre.o
 
 # Documentation
-DOC=main.c pnm.c filtre.c pnm.h filtre.h
+DOC=pnm.c filtre.c pnm.h filtre.h
 
 # Librairie
 
@@ -43,20 +43,22 @@ pnm.o: pnm.c
 filtre.o: filtre.c
 	$(CC) -c filtre.c -o filtre.o $(CFLAGS)
 
-doc_and_clear:doc clean_doc
+doc:all_doc clean_latex
 
-doc: 
+all_doc: $(DOC)
 	doxygen $(DOC)
-	cd latex && make
-	cd ..
-	mkdir doc
-	mv latex/refman.pdf doc/documentation.pdf
+	mkdir -p doc
+	mv html doc/html
+	mv latex doc/latex
+
+clean_latex:
+	rm -r doc/latex/
 
 clean_doc:
-	rm -r html/ latex/
+	rm -r doc
 
 lib: libpnm.a
-	[ ! -f "lib" ] && mkdir lib
+	mkdir -p lib
 	mv libpnm.a lib/libpnm.a
 
 libpnm.a:pnm.o
@@ -65,6 +67,9 @@ libpnm.a:pnm.o
 
 clean_lib:
 	rm -r lib/
+
+archive:
+	tar -zcvf filtres.tar.gz *.c *.h Makefile doc lib 
 
 clean:
 	rm -f *.o $(EXEC) *~ test.*

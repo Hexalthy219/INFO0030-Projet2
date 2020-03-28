@@ -1,8 +1,6 @@
 /**
  * \file filtre.h
- * 
- * \brief Ce fichier contient les déclarations de types et les prototypes
- * des fonctions pour l'ajout de filtres à des images PNM.
+ * \brief Ce fichier contient les déclarations de types et les prototypes des fonctions pour l'ajout de filtres à des images PNM.
  * 
  * \author: Russe Cyril s170220
  * \date: 19-03-2020
@@ -16,29 +14,33 @@
 
 #include "pnm.h"
 
+typedef enum
+{
+    monochrome,
+    gris,
+    nb
+} Filtre;
+
 /**
- * \fn retournement
- * 
- * \brief fait un rotation de 180degrés de image.
+ * \fn retournement(PNM *image)
+ * \brief fait un rotation de 180 degrés de image.
  * 
  * \param image l'adresse d'un pointeur sur PNM dans laquelle faire une rotation.
  * 
  * \pre image != NULL
  * \post valeur_pixel de image retournée
  * 
- * \return
- *      0 Succès
- * 
- * 
  */
-int retournement(PNM *image);
+void retournement(PNM *image);
 
-int monochrome(PNM *image, char type_monochrome);
+int monochrome(PNM *image, char *couleur);
 
 int negatif(PNM *image);
 
-int ppm_vers_pgm(PNM *image, int technique);
+int gris(PNM *image, char *technique);
 
-int pgm_vers_pbm(PNM *image, unsigned short seuil);
+int noir_blanc(PNM *image, char *seuil);
+
+static int verifie_param_filtre(Filtre filtre, char *param);
 
 #endif

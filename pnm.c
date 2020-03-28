@@ -1,9 +1,6 @@
 /**
  * \file pnm.c
- * 
- * \brief Ce fichier contient les définitions de types et 
- * les fonctions de manipulation d'images PNM.
- * 
+ * \brief Ce fichier contient les définitions de types et les fonctions de manipulation d'images PNM.
  * \author: Russe Cyril s170220
  * \date: 26-03-2020
  * 
@@ -369,32 +366,6 @@ int verifie_correspondance_extension_format(int type_image, char *filename, int 
 
 }
 
-char *Type_PNM_vers_chaine(int format){
-   switch (format){
-      case 1:   return "PBM";
-      case 2:   return "PGM";
-      case 3:   return "PPM";
-      default:    return "inconnu";
-   }
-}
-
-int chaine_vers_Type_PNM(char *chaine, int *format){
-   int taille=0;
-   while(chaine[taille]!='\0')
-      taille++;
-   if(taille!=3)
-      return -1;
-   if(chaine[0]=='P' && chaine[1]=='B' && chaine[2]=='M')
-      *format = 1;
-   else if(chaine[0]=='P' && chaine[1]=='G' && chaine[2]=='M')
-      *format = 2;
-   else if(chaine[0]=='P' && chaine[1]=='P' && chaine[2]=='M')
-      *format = 3;
-   else
-      return -1;
-   return 0;
-}
-
 int write_pnm(PNM *image, char* filename) {
    FILE *fichier;
    int extension_fichier;
@@ -450,6 +421,7 @@ int ecrit_image_dans_fichier(PNM *image, FILE *fichier){
 }
 
 int verifie_validite_filename(char *filename){
+   assert(filename!=NULL);
    char caractere=1;
    int i=0;
    while(caractere!='\0'){
@@ -484,25 +456,5 @@ int ecrit_en_tete_fichier_PNM(PNM *image, FILE *fichier){
 
    return 0;
 
-}
-
-void ajoute_extension_filename(char *filename, PNM *image){
-   int taille=0;
-   while(filename[taille]!='\0')
-      taille++;
-
-   switch (image->format){
-      case 1:
-         filename[taille-2]='b';
-         break;
-      case 2:
-         filename[taille-2]='g';
-         break;
-      case 3:
-         filename[taille-2]='p';
-         break;
-      default:
-         break;
-   }
 }
 
