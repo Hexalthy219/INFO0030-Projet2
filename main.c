@@ -21,7 +21,11 @@
 int main(int argc, char *argv[]) {
 
    /* options :
-   *  
+   *  -i image input
+   *  -f filtre
+   *  -p [paramètre]
+   *  -o image output
+   *  -h -> help
    */
    char *optstring = "i:f:p:o:h";
    PNM *image;
