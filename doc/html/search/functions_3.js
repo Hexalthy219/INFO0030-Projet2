@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['retournement',['retournement',['../filtre_8c.html#aaf91f74c958de4a5d9730b6c54c0e441',1,'retournement(PNM *image):&#160;filtre.c'],['../filtre_8h.html#a9d907932a1a11f5c3d236ce7a985b5b2',1,'retournement(PNM *image):&#160;filtre.c']]]
+  ['gris',['gris',['../filtre_8c.html#a2ee6eb00c9ca0b84802b49d21ac07a2a',1,'gris(PNM *image, char *technique):&#160;filtre.c'],['../filtre_8h.html#a5b150d6e2f0a4f35865249658a6fa829',1,'gris(PNM *image, char *technique):&#160;filtre.c']]]
 ];

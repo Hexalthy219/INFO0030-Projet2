@@ -95,32 +95,32 @@ Functions</h2></td></tr>
 <tr class="memitem:a6317f5428de83115789d7ac41e3b1fc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#a6317f5428de83115789d7ac41e3b1fc8">constructeur_PNM</a> (int nbr_ligne, int nbr_colonne, int format, unsigned int valeur_max)</td></tr>
 <tr class="memdesc:a6317f5428de83115789d7ac41e3b1fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue dynamiquement de la mémoire pour une structure PNM.  <a href="#a6317f5428de83115789d7ac41e3b1fc8">More...</a><br /></td></tr>
 <tr class="separator:a6317f5428de83115789d7ac41e3b1fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ba34f739742484398a01733aa2037b"><td class="memItemLeft" align="right" valign="top"><a id="a18ba34f739742484398a01733aa2037b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>charge_valeurs_fichier</b> (<a class="el" href="structPNM__t.html">PNM</a> *image, FILE *fichier)</td></tr>
-<tr class="separator:a18ba34f739742484398a01733aa2037b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaecc54deae2228483ed6d0c44127f414"><td class="memItemLeft" align="right" valign="top"><a id="aaecc54deae2228483ed6d0c44127f414"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>acces_nbr_ligne_PNM</b> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:aaecc54deae2228483ed6d0c44127f414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0215a375b880c5fbdbae85643f3e761"><td class="memItemLeft" align="right" valign="top"><a id="ad0215a375b880c5fbdbae85643f3e761"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>acces_nbr_colonne_PNM</b> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:ad0215a375b880c5fbdbae85643f3e761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad261625f67f7d33d2381220e1cfa6fac"><td class="memItemLeft" align="right" valign="top"><a id="ad261625f67f7d33d2381220e1cfa6fac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>acces_format_PNM</b> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:ad261625f67f7d33d2381220e1cfa6fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0edb36eaa647b2e0ed75f9055cc621f0"><td class="memItemLeft" align="right" valign="top"><a id="a0edb36eaa647b2e0ed75f9055cc621f0"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>acces_valeur_max_PNM</b> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:a0edb36eaa647b2e0ed75f9055cc621f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a458d43354a9d7c451fb97a5eb016a818"><td class="memItemLeft" align="right" valign="top"><a id="a458d43354a9d7c451fb97a5eb016a818"></a>
-unsigned short ***&#160;</td><td class="memItemRight" valign="bottom"><b>acces_valeurs_pixel_PNM</b> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:a458d43354a9d7c451fb97a5eb016a818"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27b23c910b5d73509d9898a517596ca5"><td class="memItemLeft" align="right" valign="top"><a id="a27b23c910b5d73509d9898a517596ca5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changer_valeur_pixel_PNM</b> (<a class="el" href="structPNM__t.html">PNM</a> *image, int numero_ligne, int numero_colonne, unsigned short valeur[])</td></tr>
-<tr class="separator:a27b23c910b5d73509d9898a517596ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3ed3c1b817a2d35bdaaf68b921b1978"><td class="memItemLeft" align="right" valign="top"><a id="ab3ed3c1b817a2d35bdaaf68b921b1978"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changer_format</b> (<a class="el" href="structPNM__t.html">PNM</a> *image, int format)</td></tr>
-<tr class="separator:ab3ed3c1b817a2d35bdaaf68b921b1978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9412a3439d5292cc35a6c821c86f7448"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#a9412a3439d5292cc35a6c821c86f7448">charge_valeurs_fichier</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, FILE *fichier)</td></tr>
+<tr class="memdesc:a9412a3439d5292cc35a6c821c86f7448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les valeurs de pixel contenue dans fichier, dans image.  <a href="#a9412a3439d5292cc35a6c821c86f7448">More...</a><br /></td></tr>
+<tr class="separator:a9412a3439d5292cc35a6c821c86f7448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6eedabf17962b50cf1d3f63377be825"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#ae6eedabf17962b50cf1d3f63377be825">acces_nbr_ligne_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:ae6eedabf17962b50cf1d3f63377be825"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur à la valeur du nombre de ligne de image  <a href="#ae6eedabf17962b50cf1d3f63377be825">More...</a><br /></td></tr>
+<tr class="separator:ae6eedabf17962b50cf1d3f63377be825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec8bdb3bc295c274fbe5b8738fcecb3a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#aec8bdb3bc295c274fbe5b8738fcecb3a">acces_nbr_colonne_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:aec8bdb3bc295c274fbe5b8738fcecb3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur à la valeur du nombre de colonne de image  <a href="#aec8bdb3bc295c274fbe5b8738fcecb3a">More...</a><br /></td></tr>
+<tr class="separator:aec8bdb3bc295c274fbe5b8738fcecb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa82aec206bffc8e7067963ea9a34b52f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#aa82aec206bffc8e7067963ea9a34b52f">acces_format_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:aa82aec206bffc8e7067963ea9a34b52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur au format de image  <a href="#aa82aec206bffc8e7067963ea9a34b52f">More...</a><br /></td></tr>
+<tr class="separator:aa82aec206bffc8e7067963ea9a34b52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588b3833cb24da943bf8fd1257bdb0c2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#a588b3833cb24da943bf8fd1257bdb0c2">acces_valeur_max_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:a588b3833cb24da943bf8fd1257bdb0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur à la valeur maximal des pixels de image  <a href="#a588b3833cb24da943bf8fd1257bdb0c2">More...</a><br /></td></tr>
+<tr class="separator:a588b3833cb24da943bf8fd1257bdb0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3559680517ad3abe770ebbc3f95116f"><td class="memItemLeft" align="right" valign="top">unsigned short ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#ab3559680517ad3abe770ebbc3f95116f">acces_valeurs_pixel_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:ab3559680517ad3abe770ebbc3f95116f"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur au tableau de pixels de image  <a href="#ab3559680517ad3abe770ebbc3f95116f">More...</a><br /></td></tr>
+<tr class="separator:ab3559680517ad3abe770ebbc3f95116f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9008c01845758d67924e8642d6ebdfdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#a9008c01845758d67924e8642d6ebdfdc">changer_valeur_pixel_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, int numero_ligne, int numero_colonne, unsigned short valeur[])</td></tr>
+<tr class="memdesc:a9008c01845758d67924e8642d6ebdfdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur en écriture des valeurs de pixel de PNM  <a href="#a9008c01845758d67924e8642d6ebdfdc">More...</a><br /></td></tr>
+<tr class="separator:a9008c01845758d67924e8642d6ebdfdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2537cebb6d8b5ac756e3d438ed10bb97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#a2537cebb6d8b5ac756e3d438ed10bb97">changer_format</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, int format)</td></tr>
+<tr class="memdesc:a2537cebb6d8b5ac756e3d438ed10bb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">accesseur en écriture du format de PNM  <a href="#a2537cebb6d8b5ac756e3d438ed10bb97">More...</a><br /></td></tr>
+<tr class="separator:a2537cebb6d8b5ac756e3d438ed10bb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78c4fab83adfae65fe9640be111aad98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#a78c4fab83adfae65fe9640be111aad98">libere_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> **image)</td></tr>
-<tr class="memdesc:a78c4fab83adfae65fe9640be111aad98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libere l'espace mémoire d'un pointeur sur PNM tous les pointeurs de l'image donnée en argument et free image si image!=NULL.  <a href="#a78c4fab83adfae65fe9640be111aad98">More...</a><br /></td></tr>
+<tr class="memdesc:a78c4fab83adfae65fe9640be111aad98"><td class="mdescLeft">&#160;</td><td class="mdescRight">free une image PNM  <a href="#a78c4fab83adfae65fe9640be111aad98">More...</a><br /></td></tr>
 <tr class="separator:a78c4fab83adfae65fe9640be111aad98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeabfe70318a6f0835b1ead98dcb3d07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#aeeabfe70318a6f0835b1ead98dcb3d07">lit_valeur_max</a> (unsigned int *valeur_max, FILE *fichier)</td></tr>
 <tr class="memdesc:aeeabfe70318a6f0835b1ead98dcb3d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre dans la variable que pointe valeur_max, la valeur max de l'image si est du format PGM ou PPM.  <a href="#aeeabfe70318a6f0835b1ead98dcb3d07">More...</a><br /></td></tr>
@@ -144,17 +144,295 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>changer_format</b> (<
 <tr class="memdesc:ad0efacadc06756d3a11483cf42d08c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le nom du fichier d'écriture ne contient pas de caractère interdit.  <a href="#ad0efacadc06756d3a11483cf42d08c37">More...</a><br /></td></tr>
 <tr class="separator:ad0efacadc06756d3a11483cf42d08c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad306d3e9a2c2cf0c3f8fb8341edd7b24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#ad306d3e9a2c2cf0c3f8fb8341edd7b24">ecrit_en_tete_fichier_PNM</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, FILE *fichier)</td></tr>
-<tr class="memdesc:ad306d3e9a2c2cf0c3f8fb8341edd7b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">écrit en en tete du fichier l'en tête: nombre magique, dimensions et valeurs max si c'est un fichier pgm ou ppm.  <a href="#ad306d3e9a2c2cf0c3f8fb8341edd7b24">More...</a><br /></td></tr>
+<tr class="memdesc:ad306d3e9a2c2cf0c3f8fb8341edd7b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">écrit l'en tête de fichier : nombre magique, dimensions et valeurs max si c'est un fichier pgm ou ppm.  <a href="#ad306d3e9a2c2cf0c3f8fb8341edd7b24">More...</a><br /></td></tr>
 <tr class="separator:ad306d3e9a2c2cf0c3f8fb8341edd7b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4f8fcacdbe1266567e33c733239b4bc"><td class="memItemLeft" align="right" valign="top"><a id="ab4f8fcacdbe1266567e33c733239b4bc"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fichier</b> (char *filename, <a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:ab4f8fcacdbe1266567e33c733239b4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace3abbbb0b504391176615e94a2a2c96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pnm_8c.html#ace3abbbb0b504391176615e94a2a2c96">verifie_extension_fichier</a> (char *filename, <a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:ace3abbbb0b504391176615e94a2a2c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">vérifie l'existence de l'extension de filename. Si existe, vérifie qu'elle correspond bien au format de image_output et le cas échéant la modifie(si possible).  <a href="#ace3abbbb0b504391176615e94a2a2c96">More...</a><br /></td></tr>
+<tr class="separator:ace3abbbb0b504391176615e94a2a2c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ce fichier contient les définitions de types et les fonctions de manipulation d'images PNM. </p>
 <dl class="section author"><dt>Author</dt><dd>: Russe Cyril s170220 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>: 26-03-2020 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aa82aec206bffc8e7067963ea9a34b52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa82aec206bffc8e7067963ea9a34b52f">&#9670;&nbsp;</a></span>acces_format_PNM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">acces_format_PNM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur au format de image </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
+<p>return: image-&gt;format </p>
+
+</div>
+</div>
+<a id="aec8bdb3bc295c274fbe5b8738fcecb3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec8bdb3bc295c274fbe5b8738fcecb3a">&#9670;&nbsp;</a></span>acces_nbr_colonne_PNM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">acces_nbr_colonne_PNM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur à la valeur du nombre de colonne de image </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
+<p>return: image-&gt;nbr_colonne </p>
+
+</div>
+</div>
+<a id="ae6eedabf17962b50cf1d3f63377be825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6eedabf17962b50cf1d3f63377be825">&#9670;&nbsp;</a></span>acces_nbr_ligne_PNM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">acces_nbr_ligne_PNM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur à la valeur du nombre de ligne de image </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
+<p>return: image-&gt;nbr_ligne </p>
+
+</div>
+</div>
+<a id="a588b3833cb24da943bf8fd1257bdb0c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588b3833cb24da943bf8fd1257bdb0c2">&#9670;&nbsp;</a></span>acces_valeur_max_PNM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">acces_valeur_max_PNM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur à la valeur maximal des pixels de image </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
+<p>return: image-&gt;valeur_max </p>
+
+</div>
+</div>
+<a id="ab3559680517ad3abe770ebbc3f95116f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3559680517ad3abe770ebbc3f95116f">&#9670;&nbsp;</a></span>acces_valeurs_pixel_PNM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">*** acces_valeurs_pixel_PNM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur au tableau de pixels de image </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
+<p>return: image-&gt;valeurs_pixel </p>
+
+</div>
+</div>
+<a id="a2537cebb6d8b5ac756e3d438ed10bb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2537cebb6d8b5ac756e3d438ed10bb97">&#9670;&nbsp;</a></span>changer_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">changer_format </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur en écriture du format de PNM </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM, l'image à laquelle changer le format </td></tr>
+    <tr><td class="paramname">format</td><td>un entier contenant la nouvelle valeur du format pour image</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL, format==1||format==2||format==3 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:/ </dd></dl>
+
+</div>
+</div>
+<a id="a9008c01845758d67924e8642d6ebdfdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9008c01845758d67924e8642d6ebdfdc">&#9670;&nbsp;</a></span>changer_valeur_pixel_PNM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">changer_valeur_pixel_PNM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numero_ligne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numero_colonne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>valeur</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>accesseur en écriture des valeurs de pixel de PNM </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM auquel changer la valeur d'un pixel </td></tr>
+    <tr><td class="paramname">numero_ligne</td><td>entier contenant la valeur de la ligne du pixel auquel changer la valeur </td></tr>
+    <tr><td class="paramname">numero_colonne</td><td>entier contenant la valeur de la colonne du pixel auquel changer la valeur </td></tr>
+    <tr><td class="paramname">valeur</td><td>un tableau d'unsigned short, tableau contenant la nouvelle valeur du pixel à changer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>:image-&gt;valeurs_pixel[numero_ligne][numero_colonne] changée en valeur[] </dd></dl>
+
+</div>
+</div>
+<a id="a9412a3439d5292cc35a6c821c86f7448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9412a3439d5292cc35a6c821c86f7448">&#9670;&nbsp;</a></span>charge_valeurs_fichier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">charge_valeurs_fichier </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les valeurs de pixel contenue dans fichier, dans image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM, l'image dans laquelle charger les valeurs de pixel </td></tr>
+    <tr><td class="paramname">fichier</td><td>pointeur sur FILE, le fichier contenant les valeurs à charger</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>:image!=NULL, fichier!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: valeur de fichier chargée dans le tableau image-&gt;valeurs_pixel</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 Succès du chargement <br />
+ -1 valeur de fichier incorrect ou manquante </dd></dl>
+
+</div>
+</div>
 <a id="a6317f5428de83115789d7ac41e3b1fc8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6317f5428de83115789d7ac41e3b1fc8">&#9670;&nbsp;</a></span>constructeur_PNM()</h2>
 
@@ -233,7 +511,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
       </table>
 </div><div class="memdoc">
 
-<p>écrit en en tete du fichier l'en tête: nombre magique, dimensions et valeurs max si c'est un fichier pgm ou ppm. </p>
+<p>écrit l'en tête de fichier : nombre magique, dimensions et valeurs max si c'est un fichier pgm ou ppm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">image</td><td>pointeur sur PNM structure contenant les informations nécessaires à la création de l'en tête </td></tr>
@@ -241,7 +519,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>:/ </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>:image!=NULL, fichier!=NULL </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>0 succès de l'écriture de l'en tête dans fichier <br />
  -1 échèc de l'écriture de l'en tête dans fichier car format format incorrect </dd></dl>
@@ -277,7 +555,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
 <p>écrit les valeurs de image dans fichier. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">image</td><td>un pointeur sur PNM qui contient les informations de l'iamge à retranscrire dans fichier</td></tr>
+    <tr><td class="paramname">image</td><td>un pointeur sur PNM qui contient les informations de l'image à retranscrire dans fichier </td></tr>
     <tr><td class="paramname">fichier</td><td>un pointeur sur FILE, un fichier ouvert en mode "write" afin d'y retranscrire une image PNM</td></tr>
   </table>
   </dd>
@@ -304,10 +582,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
       </table>
 </div><div class="memdoc">
 
-<p>Libere l'espace mémoire d'un pointeur sur PNM tous les pointeurs de l'image donnée en argument et free image si image!=NULL. </p>
+<p>free une image PNM </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">image</td><td>un pointeur sur PNM à libérer</td></tr>
+    <tr><td class="paramname">image</td><td>l'adresse d'un pointeur sur PNM à libérer</td></tr>
   </table>
   </dd>
 </dl>
@@ -390,7 +668,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
 <p>Enregistre dans la variable que pointe valeur_max, la valeur max de l'image si est du format PGM ou PPM. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">valeur_max</td><td>un pointeur sur unsigned int valeur_max</td></tr>
+    <tr><td class="paramname">valeur_max</td><td>un pointeur sur unsigned int valeur_max </td></tr>
     <tr><td class="paramname">fichier</td><td>un pointeur vers FILE, le fichier dans lequel lire la valeur_max</td></tr>
   </table>
   </dd>
@@ -478,13 +756,54 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
 <p>Vérifie si l'extension du fichier dans le nom de celui-ci correspond au type de type_image déduit du nombre magique. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type_image</td><td>enum contenant le type de l'image de type Type_PNM </td></tr>
+    <tr><td class="paramname">type_image</td><td>entier contenant le format de l'image </td></tr>
     <tr><td class="paramname">filename</td><td>une chaine de caractère contenant le nom du fichier</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 succès de la vérification <br />
  -1 échec de la vérification </dd></dl>
+
+</div>
+</div>
+<a id="ace3abbbb0b504391176615e94a2a2c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3abbbb0b504391176615e94a2a2c96">&#9670;&nbsp;</a></span>verifie_extension_fichier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">verifie_extension_fichier </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>vérifie l'existence de l'extension de filename. Si existe, vérifie qu'elle correspond bien au format de image_output et le cas échéant la modifie(si possible). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>chaine de caractères contenant le nom de l'image_output </td></tr>
+    <tr><td class="paramname">image</td><td>pointeur sur PNM, l'image dont l'extension de filename doit correspondre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: filename!=NULL, image!=NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: extension de filename correspond au format de image</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 Succès de la vérification <br />
+ -1 Extension incorrect/inexistante </dd></dl>
 
 </div>
 </div>
@@ -549,11 +868,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verifie_extension_fich
 <p>Vérifie si le nom du fichier d'écriture ne contient pas de caractère interdit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>pointeur sur une chaine de caractère contenant le nom du fichier à vérifier</td></tr>
+    <tr><td class="paramname">filename</td><td>une chaine de caractère contenant le nom du fichier à vérifier</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>:/ </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>:filename!=NULL </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>:/</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>0 le nom de fichier ne contient pas de caractère interdit <br />
  -1 le nom de fichier contient des caractères interdits </dd></dl>

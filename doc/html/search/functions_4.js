@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['verifie_5fcorrespondance_5fextension_5fformat',['verifie_correspondance_extension_format',['../pnm_8c.html#aa0ca5e297113f50d1ce73c7b5e176ddf',1,'verifie_correspondance_extension_format(int type_image, char *filename, int *extension_fichier):&#160;pnm.c'],['../pnm_8h.html#ab3914a3df9e22c627b675e3ccf77cb84',1,'verifie_correspondance_extension_format(int type_image, char *filename, int *extension_fichier):&#160;pnm.c']]],
-  ['verifie_5fnombre_5fmagique',['verifie_nombre_magique',['../pnm_8c.html#a28e17291cdf63300dbb59568d8d86c02',1,'verifie_nombre_magique(int *type, FILE *fichier):&#160;pnm.c'],['../pnm_8h.html#a327d10f173286ccf1a37475b66b160d3',1,'verifie_nombre_magique(int *type, FILE *fichier):&#160;pnm.c']]],
-  ['verifie_5fvalidite_5ffilename',['verifie_validite_filename',['../pnm_8c.html#ad0efacadc06756d3a11483cf42d08c37',1,'verifie_validite_filename(char *filename):&#160;pnm.c'],['../pnm_8h.html#a3cd49ff792cfb6e8b51a0d22915e6c0c',1,'verifie_validite_filename(char *filename):&#160;pnm.c']]]
+  ['libere_5fpnm',['libere_PNM',['../pnm_8c.html#a78c4fab83adfae65fe9640be111aad98',1,'libere_PNM(PNM **image):&#160;pnm.c'],['../pnm_8h.html#ae78d1c9a1c861c86b5b1bd7cbff31352',1,'libere_PNM(PNM **image):&#160;pnm.c']]],
+  ['lit_5fdimensions_5fimage',['lit_dimensions_image',['../pnm_8c.html#ad6294ddbfca47734e30fe63e2414f10b',1,'lit_dimensions_image(int *nbr_ligne, int *nbr_colonne, FILE *fichier):&#160;pnm.c'],['../pnm_8h.html#a97483c7efd2beb3c7eab42bb968bf162',1,'lit_dimensions_image(int *nbr_ligne, int *nbr_colonne, FILE *fichier):&#160;pnm.c']]],
+  ['lit_5fvaleur_5fmax',['lit_valeur_max',['../pnm_8c.html#aeeabfe70318a6f0835b1ead98dcb3d07',1,'lit_valeur_max(unsigned int *valeur_max, FILE *fichier):&#160;pnm.c'],['../pnm_8h.html#a572a34740dd0c45a4c9a2f0572ac44c7',1,'lit_valeur_max(unsigned int *valeur_max, FILE *fichier):&#160;pnm.c']]],
+  ['load_5fpnm',['load_pnm',['../pnm_8c.html#a718d3667eb03777d1b038cc27919c850',1,'load_pnm(PNM **image, char *filename):&#160;pnm.c'],['../pnm_8h.html#adf533a1bc155f9ee83d90c5a1564468f',1,'load_pnm(PNM **image, char *filename):&#160;pnm.c']]]
 ];

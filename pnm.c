@@ -154,6 +154,7 @@ PNM *constructeur_PNM(int nbr_ligne,int nbr_colonne, int format, unsigned int va
 }
 
 int charge_valeurs_fichier(PNM *image, FILE *fichier){
+   assert(image!=NULL && fichier!=NULL);
    char stockage_valeur_fichier[100];
    int i, j, nbr_valeur_ppm = 0;
 
@@ -229,7 +230,7 @@ void changer_valeur_pixel_PNM(PNM *image, int numero_ligne, int numero_colonne, 
 }
 
 void changer_format(PNM *image, int format){
-   assert(image!=NULL && (format==1||format==2));
+   assert(image!=NULL && (format==1||format==2||format==3));
 
    image->format=format;
 }
@@ -245,6 +246,7 @@ void libere_PNM(PNM **image){
       free((*image)->valeurs_pixel);
       free(*image);
    }
+   *image=NULL;
 }
 
 int lit_valeur_max(unsigned int *valeur_max, FILE  *fichier){
@@ -430,6 +432,7 @@ int verifie_validite_filename(char *filename){
 }
 
 int ecrit_en_tete_fichier_PNM(PNM *image, FILE *fichier){
+   assert(image!=NULL && fichier!=NULL);
    switch (image->format)
    {
    case 1:

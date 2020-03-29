@@ -106,7 +106,8 @@ int main(int argc, char *argv[]) {
       libere_PNM(&image);
       return -1;
    }
-   
+
+
    if(verifie_extension_fichier(filename_output, image)==0){
       if(write_pnm(image, filename_output)==0)
          printf("Le filtre a correctement été appliqué sur %s et enregistrer dans %s.\n", filename, filename_output);

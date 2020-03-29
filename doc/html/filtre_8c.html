@@ -86,24 +86,177 @@ Functions</h2></td></tr>
 <tr class="memitem:aaf91f74c958de4a5d9730b6c54c0e441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtre_8c.html#aaf91f74c958de4a5d9730b6c54c0e441">retournement</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
 <tr class="memdesc:aaf91f74c958de4a5d9730b6c54c0e441"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait un rotation de 180 degrés de image.  <a href="#aaf91f74c958de4a5d9730b6c54c0e441">More...</a><br /></td></tr>
 <tr class="separator:aaf91f74c958de4a5d9730b6c54c0e441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94af484629a3f72770adf8dde71d506f"><td class="memItemLeft" align="right" valign="top"><a id="a94af484629a3f72770adf8dde71d506f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>monochrome</b> (<a class="el" href="structPNM__t.html">PNM</a> *image, char *couleur)</td></tr>
-<tr class="separator:a94af484629a3f72770adf8dde71d506f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbef35d52284634e010540a832c0b102"><td class="memItemLeft" align="right" valign="top"><a id="acbef35d52284634e010540a832c0b102"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>negatif</b> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
-<tr class="separator:acbef35d52284634e010540a832c0b102"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b150d6e2f0a4f35865249658a6fa829"><td class="memItemLeft" align="right" valign="top"><a id="a5b150d6e2f0a4f35865249658a6fa829"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>gris</b> (<a class="el" href="structPNM__t.html">PNM</a> *image, char *technique)</td></tr>
-<tr class="separator:a5b150d6e2f0a4f35865249658a6fa829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31ca8b7fa0381fcb27c64ac5a6f46c76"><td class="memItemLeft" align="right" valign="top"><a id="a31ca8b7fa0381fcb27c64ac5a6f46c76"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>noir_blanc</b> (<a class="el" href="structPNM__t.html">PNM</a> *image, char *seuil)</td></tr>
-<tr class="separator:a31ca8b7fa0381fcb27c64ac5a6f46c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c54f88c8c173fdabe2e65cc8544c8dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtre_8c.html#a5c54f88c8c173fdabe2e65cc8544c8dd">monochrome</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, char *couleur)</td></tr>
+<tr class="memdesc:a5c54f88c8c173fdabe2e65cc8544c8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique un filtre monochrome sur une image PNM au format ppm.  <a href="#a5c54f88c8c173fdabe2e65cc8544c8dd">More...</a><br /></td></tr>
+<tr class="separator:a5c54f88c8c173fdabe2e65cc8544c8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b0749fa055e91b71a12d769176d1beb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtre_8c.html#a4b0749fa055e91b71a12d769176d1beb">negatif</a> (<a class="el" href="structPNM__t.html">PNM</a> *image)</td></tr>
+<tr class="memdesc:a4b0749fa055e91b71a12d769176d1beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique un filtre négatif sur une image PNM au format ppm.  <a href="#a4b0749fa055e91b71a12d769176d1beb">More...</a><br /></td></tr>
+<tr class="separator:a4b0749fa055e91b71a12d769176d1beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee6eb00c9ca0b84802b49d21ac07a2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtre_8c.html#a2ee6eb00c9ca0b84802b49d21ac07a2a">gris</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, char *technique)</td></tr>
+<tr class="memdesc:a2ee6eb00c9ca0b84802b49d21ac07a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique un filtre gris sur une image PNM au format ppm.  <a href="#a2ee6eb00c9ca0b84802b49d21ac07a2a">More...</a><br /></td></tr>
+<tr class="separator:a2ee6eb00c9ca0b84802b49d21ac07a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9094d0242b12ac2bfc5ee0fcc21a98c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtre_8c.html#ad9094d0242b12ac2bfc5ee0fcc21a98c">noir_blanc</a> (<a class="el" href="structPNM__t.html">PNM</a> *image, char *seuil)</td></tr>
+<tr class="memdesc:ad9094d0242b12ac2bfc5ee0fcc21a98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique un filtre noir et blanc sur une image PNM au format ppm ou pgm.  <a href="#ad9094d0242b12ac2bfc5ee0fcc21a98c">More...</a><br /></td></tr>
+<tr class="separator:ad9094d0242b12ac2bfc5ee0fcc21a98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ce fichier contient les définitions de types et les fonctions de filtre d'images PNM. </p>
 <dl class="section author"><dt>Author</dt><dd>: Russe Cyril s170220 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>: 19-03-2020 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2ee6eb00c9ca0b84802b49d21ac07a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ee6eb00c9ca0b84802b49d21ac07a2a">&#9670;&nbsp;</a></span>gris()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gris </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>technique</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique un filtre gris sur une image PNM au format ppm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM auquel appliquer le filtre </td></tr>
+    <tr><td class="paramname">technique</td><td>une chaine de caractère contenant la valeur de la technique à utiliser ("1" ou "2")</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL, technique=="1" ou technique=="2" </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: image-&gt;format=2, valeurs du tableau de pixel modifiées</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 Succès de l'application du filtre <br />
+ -1 Format d'image différent de ppm <br />
+ -2 Paramètre du filtre différent de 1 et de 2 </dd></dl>
+
+</div>
+</div>
+<a id="a5c54f88c8c173fdabe2e65cc8544c8dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c54f88c8c173fdabe2e65cc8544c8dd">&#9670;&nbsp;</a></span>monochrome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">monochrome </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>couleur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique un filtre monochrome sur une image PNM au format ppm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>un pointeur sur PNM </td></tr>
+    <tr><td class="paramname">couleur</td><td>une chaine de caractère contenant le type de filtre monochrome à appliquer ('r','v' ou 'b')</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>image!=NULL, image-&gt;format=3 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>toutes les composantes de chaque pixels nulles, sauf celle de "couleur"</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 Succès <br />
+ -1 format!=3 -2 couleur n'est pas un param valable </dd></dl>
+
+</div>
+</div>
+<a id="a4b0749fa055e91b71a12d769176d1beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b0749fa055e91b71a12d769176d1beb">&#9670;&nbsp;</a></span>negatif()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">negatif </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique un filtre négatif sur une image PNM au format ppm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>un pointeur sur PNM auquel appliquer le filtre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>image!=NULL, image-&gt;format=3 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>toutes les composantes de pixels ont été transformées en leur composante négative </dd></dl>
+
+</div>
+</div>
+<a id="ad9094d0242b12ac2bfc5ee0fcc21a98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9094d0242b12ac2bfc5ee0fcc21a98c">&#9670;&nbsp;</a></span>noir_blanc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">noir_blanc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNM__t.html">PNM</a> *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>seuil</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique un filtre noir et blanc sur une image PNM au format ppm ou pgm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>pointeur sur PNM auquel appliquer le filtre </td></tr>
+    <tr><td class="paramname">seuil</td><td>chaine de caractère contenant une valeur représentant le seuil à laquelle une valeur grise est noir ou blanche</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: image!=NULL, seuil!=NULL, 0 &lt;= seuil &lt;= image-&gt;valeur_max </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: image-&gt;format=1, valeurs du tableau de pixel modifiées</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 Succès de l'application du filtre <br />
+ -1 seuil n'est pas une valeur de seuil valable <br />
+ -2 Format d'entrée différent de 2(pgm) ou 3(ppm) </dd></dl>
+
+</div>
+</div>
 <a id="aaf91f74c958de4a5d9730b6c54c0e441"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf91f74c958de4a5d9730b6c54c0e441">&#9670;&nbsp;</a></span>retournement()</h2>
 
@@ -123,7 +276,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>noir_blanc</b> (<a cla
 <p>fait un rotation de 180 degrés de image. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">image</td><td>l'adresse d'un pointeur sur PNM dans laquelle faire une rotation.</td></tr>
+    <tr><td class="paramname">image</td><td>un pointeur sur PNM</td></tr>
   </table>
   </dd>
 </dl>

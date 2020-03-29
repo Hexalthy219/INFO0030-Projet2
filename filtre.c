@@ -107,15 +107,10 @@ int gris(PNM *image, char *technique){
         return -2;
     }
     unsigned short ***matrice_pixels = acces_valeurs_pixel_PNM(image);
-    int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image), valeur_max = acces_valeur_max_PNM(image);
+    int nbr_ligne = acces_nbr_ligne_PNM(image), nbr_colonne = acces_nbr_colonne_PNM(image);
     float moyenne;
     unsigned short gris[1];
-
-    PNM *image_PGM;
-    if((image_PGM = constructeur_PNM(nbr_ligne, nbr_colonne, 2, valeur_max))==NULL){
-        printf("Echec lors de l'application du filtre gris.\n");
-        return -3;
-    }
+    changer_format(image, 2);
 
     for(int i=0; i<nbr_ligne; i++){
         for(int j=0; j<nbr_colonne; j++){
@@ -132,13 +127,10 @@ int gris(PNM *image, char *technique){
             if((moyenne - gris[0])>0.5)
                 gris[0]++;
             
-            changer_valeur_pixel_PNM(image_PGM, i, j, gris);
+            changer_valeur_pixel_PNM(image, i, j, gris);
         }
     }
-    image = image_PGM;
-    printf("format : %d\n", acces_format_PNM(image));
-    libere_PNM(&image_PGM);
-    printf("format : %d\n", acces_format_PNM(image));
+    
     return 0;
 }
 
